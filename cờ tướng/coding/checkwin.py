@@ -17,14 +17,7 @@ def check_win(team, board):
                         selected_pos = (a, b)
                         box = expect_move(selected_piece, selected_pos, board)[0]
                         for c in box:
-                                row, col = c
-                                board_ảo = copy.deepcopy(board)
-                                board_ảo[selected_pos[0]][selected_pos[1]] = None
-                                board_ảo[row][col] = selected_piece
-                                board_array = np.array(board_ảo)
-                                position = np.where(board_array == "将")
-                                formatted_position = (position[0][0], position[1][0])
-                                if protect_king("将", formatted_position, board_ảo):
+                            if protect_king("将", board, c, selected_pos, selected_piece) == True:#protect_king(king, board_ảo, plan, selected_pos, selected_piece)
                                     flat = True
                                     winner = None
                                     break
@@ -39,16 +32,9 @@ def check_win(team, board):
                         selected_piece = board[a][b]
                         selected_pos = (a, b)
                         box = expect_move(selected_piece, selected_pos, board)[0]
-                        # print(selected_piece, box)
+                        # print(selected_piece, box)"帥"
                         for c in box:
-                                row, col = c
-                                board_ảo[selected_pos[0]][selected_pos[1]] = None
-                                board_ảo[row][col] = selected_piece
-                                board_array = np.array(board_ảo)
-                                position_blue = np.where(board_array == "帥")
-                                formatted_position_blue = (position_blue[0][0], position_blue[1][0])
-                                
-                                if protect_king("帥", formatted_position_blue, board_ảo):
+                            if protect_king("帥", board, c, selected_pos, selected_piece) == True:#protect_king(king, board_ảo, plan, selected_pos, selected_piece)
                                     flat = True
                                     winner = None
                                     break

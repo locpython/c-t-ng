@@ -1,6 +1,6 @@
 selected_pos = None
+import numpy as np
 from frontend import blue_team
-
 from dataclasses import dataclass
 @dataclass
 class Move:
@@ -127,7 +127,8 @@ class Move:
                 elif (abs(self.col - self.selected_pos[1]) == 1) and (self.row == self.selected_pos[0]):
                     return True 
         else:
-            return False                     
+            return False
+                                
     def car(self):
         if self.selected_piece in ["車", "俥"]:
             if self.selected_pos[0] == self.row or self.selected_pos[1] == self.col:
@@ -153,4 +154,3 @@ class Move:
                             if self.board[a][self.col] is not None:
                                 return False
                         return True
-

@@ -16,7 +16,7 @@ def expect_move(selected_piece, selected_pos, board_move):
                         box.append((a, b))
                 elif selected_piece in ["砲", "炮"]:
                     if move_.gun():
-                        if isinstance(move_.gun(), list):
+                        if isinstance(move_.gun(), list): #True k phải list là False
                             box.append((a, b))
                             if move_.gun()[1] == "eat":
                                 cannoe_eat.append((a, b))
